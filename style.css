@@ -426,3 +426,19 @@ img { max-width: 100%; display: block; }
   background: #fff; border: 1px solid var(--rule); color: var(--slate);
   font-size: .82rem; font-weight: 700;
 }
+
+/* Handy: höherer Bildrahmen, damit hochformatige Grafiken groß und lesbar sind */
+@media (max-width: 760px) {
+  .product .product-photo.gallery, .product-wide .product-photo.gallery { aspect-ratio: 4 / 5; }
+  .slide img { left: 8px; top: 8px; width: calc(100% - 16px); height: calc(100% - 40px); }
+  .gallery.single .slide img { height: calc(100% - 16px); }
+}
+
+/* Handy: keine Knöpfe über dem Foto – wischen, antippen öffnet Großansicht */
+@media (max-width: 760px) {
+  .gallery .gal-btn, .gallery .gal-zoom { display: none; }
+  .gallery .gal-count {
+    top: auto; bottom: 9px; left: 12px; padding: 0;
+    background: none; color: var(--slate); font-size: .85rem;
+  }
+}
