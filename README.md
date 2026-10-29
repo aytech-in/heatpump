@@ -13,7 +13,7 @@ Dann http://localhost:8000 öffnen.
 
 ## Vor dem Livegang
 
-1. **Fotos lokal speichern:** `./scripts/fetch-images.sh` ausführen. Das lädt die vier Produktfotos nach `img/` und entfernt danach die eBay-Ersatzlinks aus `index.html`. Bis dahin lädt die Seite die Fotos direkt von eBay, und das steht nicht in der Datenschutzerklärung. Eigene Fotos können einfach unter denselben Dateinamen in `img/` gelegt werden.
+1. **Fotos laden:** `./scripts/fetch-images.sh` ausführen. Das lädt alle Galerie-Fotos (5–6 pro Gerät) von eBay nach `img/` und verkleinert sie. Fehlt ein Foto, blendet die Galerie es einfach aus. Eigene Fotos können unter denselben Dateinamen in `img/` gelegt werden (z. B. `heatpump-8kw-2.jpg`).
 2. **Impressum und Datenschutz:** Name, Anschrift und E-Mail des Inhabers eintragen (alles in eckigen Klammern):
    `grep -n "\[" impressum.html datenschutz.html`
    Die Texte sind Vorlagen und keine Rechtsberatung. Am besten vom Inhaber mit einem Generator (z. B. e-recht24 oder datenschutz-generator.de) gegenprüfen lassen.
