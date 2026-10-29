@@ -4,21 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wärmepumpen Berlin-Brandenburg – Verkauf und Einbau</title>
-  <meta name="description" content="Wärmepumpen, Warmwasser-Wärmepumpen und Notstromaggregate. Verkauf und Einbau in Berlin und Brandenburg. Persönliche Beratung am Telefon: 0175 6575605.">
+  <meta name="description" content="Wärmepumpen, Warmwasser-Wärmepumpen und Notstromaggregate. Verkauf und Einbau in Berlin und Brandenburg. Persönliche Beratung am Telefon: 0123 4567890.">
   <meta property="og:title" content="Wärmepumpen Berlin-Brandenburg">
   <meta property="og:description" content="Wärmepumpen, Warmwasser-Wärmepumpen und Notstromaggregate. Verkauf und Einbau in Berlin und Brandenburg.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#10222e">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/heros-cn-bold.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script>
-    // Falls ein Produktfoto nicht geladen werden kann: neutrale Fläche statt kaputtem Bild
+    // Fotos, die nicht geladen werden können, aus der Galerie nehmen (statt kaputtem Bild)
     document.addEventListener('error', function (e) {
       var img = e.target;
-      if (img.tagName !== 'IMG' || !img.closest('.product-photo')) return;
-      if (img.src.indexOf('ebayimg') !== -1 || !img.getAttribute('onerror')) img.closest('.product-photo').classList.add('no-photo');
+      if (img.tagName !== 'IMG' || !img.closest('.slide')) return;
+      img.closest('.slide').classList.add('failed');
+      document.dispatchEvent(new CustomEvent('gallery:failed', { detail: img }));
     }, true);
   </script>
 </head>
@@ -37,9 +39,9 @@
       <a href="#ablauf">Ablauf</a>
       <a href="#fragen">Fragen</a>
     </nav>
-    <a class="top-call" href="tel:+491756575605">
+    <a class="top-call" href="tel:+491234567890">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
-      0175 6575605
+      0123 4567890
     </a>
   </div>
 </header>
@@ -53,8 +55,8 @@
         <h1>Wärme aus der Luft. Eingebaut in Berlin und Brandenburg.</h1>
         <p class="hero-lead">Wir verkaufen Wärmepumpen, Warmwasser-Wärmepumpen und Notstromaggregate und bauen sie bei Ihnen ein. Rufen Sie an, wir beraten Sie persönlich.</p>
         <div class="hero-actions">
-          <a class="btn btn-heat" href="tel:+491756575605">0175 6575605 anrufen</a>
-          <a class="btn btn-line" href="https://wa.me/491756575605" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+          <a class="btn btn-heat" href="tel:+491234567890">0123 4567890 anrufen</a>
+          <a class="btn btn-line" href="https://wa.me/491234567890" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
         </div>
         <ul class="facts">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4 M12 11v10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Neugeräte</li>
@@ -164,11 +166,32 @@
 
         <!-- Heat pump, two sizes -->
         <article class="product product-wide" data-product="wp">
-          <div class="product-photo">
-            <img data-size-img="8" src="img/heatpump-8kw.jpg" alt="Inverter-Wärmepumpe Monoblock 8 kW" width="640" height="480" loading="lazy"
-                 onerror="this.onerror=null;this.src='https://i.ebayimg.com/images/g/A-0AAeSwED5qv4I5/s-l500.jpg'">
-            <img data-size-img="16" src="img/heatpump-16kw.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW" width="640" height="480" loading="lazy" hidden
-                 onerror="this.onerror=null;this.src='https://i.ebayimg.com/images/g/aLEAAeSw-ftqv42o/s-l500.jpg'">
+          <div class="product-photo gallery" data-gallery data-size-img="8">
+            <div class="gal-track" tabindex="0" role="group" aria-roledescription="Bildergalerie" aria-label="Fotos: Inverter-Wärmepumpe Monoblock 8 kW">
+              <figure class="slide"><img src="img/heatpump-8kw-2.jpg" alt="Inverter-Wärmepumpe Monoblock 8 kW, Foto 1 von 4" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-8kw-3.jpg" alt="Inverter-Wärmepumpe Monoblock 8 kW, Foto 2 von 4" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-8kw-4.jpg" alt="Inverter-Wärmepumpe Monoblock 8 kW, Foto 3 von 4" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-8kw-5.jpg" alt="Inverter-Wärmepumpe Monoblock 8 kW, Foto 4 von 4" width="640" height="480" loading="lazy" decoding="async"></figure>
+            </div>
+            <span class="gal-count" aria-hidden="true">1 / 4</span>
+            <button type="button" class="gal-btn gal-prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-btn gal-next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-zoom" aria-label="Fotos groß ansehen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="gal-dots" aria-hidden="true"></div>
+          </div>
+          <div class="product-photo gallery" data-gallery data-size-img="16" hidden>
+            <div class="gal-track" tabindex="0" role="group" aria-roledescription="Bildergalerie" aria-label="Fotos: Inverter-Wärmepumpe Monoblock 16 kW">
+              <figure class="slide"><img src="img/heatpump-16kw-2.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW, Foto 1 von 5" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-16kw-3.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW, Foto 2 von 5" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-16kw-4.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW, Foto 3 von 5" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-16kw-5.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW, Foto 4 von 5" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/heatpump-16kw-6.jpg" alt="Inverter-Wärmepumpe Monoblock 16 kW, Foto 5 von 5" width="640" height="480" loading="lazy" decoding="async"></figure>
+            </div>
+            <span class="gal-count" aria-hidden="true">1 / 5</span>
+            <button type="button" class="gal-btn gal-prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-btn gal-next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-zoom" aria-label="Fotos groß ansehen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="gal-dots" aria-hidden="true"></div>
           </div>
           <div class="plate">
             <p class="plate-kind">Heizen, Kühlen und Warmwasser</p>
@@ -192,8 +215,8 @@
             </dl>
             <p class="plate-note">Die Kältetechnik sitzt im Außengerät. Der Ventilator läuft mit variabler Drehzahl.</p>
             <div class="plate-actions">
-              <a class="btn btn-heat" href="tel:+491756575605">Anrufen</a>
-              <a class="btn btn-quiet" href="https://wa.me/491756575605?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Inverter-W%C3%A4rmepumpe." target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-heat" href="tel:+491234567890">Anrufen</a>
+              <a class="btn btn-quiet" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Inverter-W%C3%A4rmepumpe." target="_blank" rel="noopener">WhatsApp</a>
               <a class="text-link" data-size-link="8" href="https://www.ebay.de/itm/198682334614" target="_blank" rel="noopener">Auf eBay ansehen</a>
             </div>
           </div>
@@ -201,9 +224,17 @@
 
         <!-- Hot water heat pump -->
         <article class="product">
-          <div class="product-photo">
-            <img src="img/hotwater-100l.jpg" alt="Warmwasser-Wärmepumpe 100 Liter" width="640" height="480" loading="lazy"
-                 onerror="this.onerror=null;this.src='https://i.ebayimg.com/images/g/kmkAAeSwMYpqv5Bw/s-l500.jpg'">
+          <div class="product-photo gallery" data-gallery>
+            <div class="gal-track" tabindex="0" role="group" aria-roledescription="Bildergalerie" aria-label="Fotos: Warmwasser-Wärmepumpe 100 Liter">
+              <figure class="slide"><img src="img/hotwater-100l-2.jpg" alt="Warmwasser-Wärmepumpe 100 Liter, Foto 1 von 3" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/hotwater-100l-3.jpg" alt="Warmwasser-Wärmepumpe 100 Liter, Foto 2 von 3" width="640" height="480" loading="lazy" decoding="async"></figure>
+              <figure class="slide"><img src="img/hotwater-100l-4.jpg" alt="Warmwasser-Wärmepumpe 100 Liter, Foto 3 von 3" width="640" height="480" loading="lazy" decoding="async"></figure>
+            </div>
+            <span class="gal-count" aria-hidden="true">1 / 3</span>
+            <button type="button" class="gal-btn gal-prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-btn gal-next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="gal-zoom" aria-label="Fotos groß ansehen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="gal-dots" aria-hidden="true"></div>
           </div>
           <div class="plate">
             <p class="plate-kind">Warmwasser</p>
@@ -216,8 +247,8 @@
             </dl>
             <p class="plate-note">Erzeugt warmes Wasser, auch wenn die Heizung nicht läuft. Leiser Betrieb.</p>
             <div class="plate-actions">
-              <a class="btn btn-heat" href="tel:+491756575605">Anrufen</a>
-              <a class="btn btn-quiet" href="https://wa.me/491756575605?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Warmwasser-W%C3%A4rmepumpe." target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-heat" href="tel:+491234567890">Anrufen</a>
+              <a class="btn btn-quiet" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Warmwasser-W%C3%A4rmepumpe." target="_blank" rel="noopener">WhatsApp</a>
               <a class="text-link" href="https://www.ebay.de/itm/198682462761" target="_blank" rel="noopener">Auf eBay ansehen</a>
             </div>
           </div>
@@ -225,9 +256,26 @@
 
         <!-- Generator -->
         <article class="product">
-          <div class="product-photo">
-            <img src="img/generator.png" alt="Diesel-Notstromaggregat mit automatischem Start" width="640" height="480" loading="lazy"
-                 onerror="this.onerror=null;this.src='https://i.ebayimg.com/thumbs/images/g/P1sAAeSwmP5qv5QJ/s-l500.jpg'">
+          <div class="product-photo illustration">
+            <svg viewBox="0 0 320 240" role="img" aria-label="Zeichnung eines Notstromaggregats">
+              <g fill="none" stroke="#10222e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+                <rect x="46" y="58" width="228" height="136" rx="10" fill="#f8fbfc"/>
+                <path d="M46 84h228"/>
+                <rect x="150" y="98" width="106" height="66" rx="6" fill="#e9eff2"/>
+                <circle cx="172" cy="118" r="8"/>
+                <rect x="194" y="108" width="24" height="18" rx="2"/>
+                <circle cx="168" cy="146" r="7" fill="#4fa3d9" stroke="#10222e"/>
+                <circle cx="192" cy="146" r="7" fill="#e8711c" stroke="#10222e"/>
+                <path d="M228 140h16M228 150h16"/>
+                <path d="M64 104h60M64 118h60M64 132h60M64 146h60" stroke="#cfdbe2"/>
+                <path d="M120 58v-14h20v14"/>
+                <path d="M274 96h14v42h-14"/>
+                <circle cx="78" cy="204" r="12" fill="#10222e"/>
+                <circle cx="242" cy="204" r="12" fill="#10222e"/>
+              </g>
+              <path d="M98 66l-8 12h8l-6 10" fill="none" stroke="#e8711c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="illu-note">Foto folgt</span>
           </div>
           <div class="plate">
             <p class="plate-kind">Notstrom</p>
@@ -239,8 +287,8 @@
             </dl>
             <p class="plate-note">Springt selbst an, wenn der Strom ausfällt.</p>
             <div class="plate-actions">
-              <a class="btn btn-heat" href="tel:+491756575605">Anrufen</a>
-              <a class="btn btn-quiet" href="https://wa.me/491756575605?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Notstromaggregat." target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-heat" href="tel:+491234567890">Anrufen</a>
+              <a class="btn btn-quiet" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Notstromaggregat." target="_blank" rel="noopener">WhatsApp</a>
               <a class="text-link" href="https://www.ebay.de/itm/198682476447" target="_blank" rel="noopener">Auf eBay ansehen</a>
             </div>
           </div>
@@ -255,7 +303,7 @@
     <div class="wrap why-grid">
       <h2>Erst reden, dann einbauen.</h2>
       <div>
-        <p>Jedes Haus ist anders. Welche Wärmepumpe passt, hängt zum Beispiel von der Größe des Hauses und der vorhandenen Heizung ab. Deshalb gibt es hier keinen Warenkorb.</p>
+        <p>Jedes Haus ist anders. Welche Wärmepumpe passt, hängt zum Beispiel von der Größe des Hauses und der vorhandenen Heizung ab.</p>
         <p>Wir klären das zuerst im Gespräch und machen Ihnen dann ein Angebot, das zu Ihrem Haus passt.</p>
       </div>
     </div>
@@ -331,10 +379,10 @@
         <p>Am schnellsten erreichen Sie uns telefonisch oder per WhatsApp. Einbau in Berlin und Brandenburg.</p>
       </div>
       <div class="contact-actions">
-        <a class="big-number" href="tel:+491756575605">0175 6575605</a>
+        <a class="big-number" href="tel:+491234567890">0123 4567890</a>
         <div class="contact-buttons">
-          <a class="btn btn-heat" href="tel:+491756575605">Jetzt anrufen</a>
-          <a class="btn btn-line" href="https://wa.me/491756575605" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+          <a class="btn btn-heat" href="tel:+491234567890">Jetzt anrufen</a>
+          <a class="btn btn-line" href="https://wa.me/491234567890" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
         </div>
       </div>
     </div>
@@ -353,9 +401,17 @@
 </footer>
 
 <div class="dock" aria-label="Schnellkontakt">
-  <a class="btn btn-heat" href="tel:+491756575605">Anrufen</a>
-  <a class="btn btn-wa" href="https://wa.me/491756575605" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-heat" href="tel:+491234567890">Anrufen</a>
+  <a class="btn btn-wa" href="https://wa.me/491234567890" target="_blank" rel="noopener">WhatsApp</a>
 </div>
+
+<dialog class="lightbox" aria-label="Fotos">
+  <div class="lb-track" tabindex="0"></div>
+  <span class="lb-count" aria-live="polite"></span>
+  <button type="button" class="lb-btn lb-close" aria-label="Schließen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="lb-btn lb-next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</dialog>
 
 <script src="main.js" defer></script>
 </body>
