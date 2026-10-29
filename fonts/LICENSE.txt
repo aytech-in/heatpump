@@ -1,0 +1,4 @@
+Schriften: TeX Gyre Heros und TeX Gyre Heros Cn (GUST e-foundry)
+Lizenz: GUST Font License – freie Nutzung, Weitergabe und Einbettung erlaubt.
+https://www.gust.org.pl/projects/e-foundry/licenses
+Die Dateien wurden auf lateinische Zeichen reduziert und ins WOFF-Format umgewandelt.
