@@ -442,3 +442,18 @@ img { max-width: 100%; display: block; }
     background: none; color: var(--slate); font-size: .85rem;
   }
 }
+
+/* Preis mit Einbau */
+.price {
+  margin-top: 16px; padding: 14px 16px;
+  border-radius: var(--r-sm); background: #fff4e8; border: 1px solid #f4c79f;
+}
+.price-main { font-size: 1.02rem; }
+.price-main strong { font-family: var(--display); font-size: 1.7rem; color: var(--heat-ink); margin: 0 2px; }
+.price-main span { color: var(--slate); font-size: .9rem; white-space: nowrap; }
+.price-note { margin-top: 4px; font-size: .88rem; color: var(--slate); }
+
+/* E-Mail */
+.contact-mail { margin-top: 16px; color: var(--slate); }
+.contact-mail a { color: var(--ink); font-weight: 700; text-underline-offset: 4px; }
+.price-note .text-link { font-weight: 700; }
